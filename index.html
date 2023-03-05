@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+    <title>To do List</title>
+</head>
+<body>
+    <header>
+        <img src="img/J.png" alt="logo do Jeff Chien Developer" class="imagem__logo">
+    </header>
+    <main>
+        <section class="main__form">
+            <form id="add__element" class="form__add">
+                <h1 class="main__title">Insira sua task aqui!</h1>
+                <input id="main__task" type="text" placeholder="Ex: Varrer a casa" class="main__input">
+                <button class="main__button">Adicionar</button>
+            </form>
+        </section>
+        <section class="task__container">
+            <div class="task__container-repository">
+                <ul class="task__container-list">
+                    <li class="task__list-item">
+                        <h2 class="task__list-number">Task 1</h2>
+                        <p class="task__list-description">Pegar umas ondas!</p>
+                        <div class="task__list-data">
+                            <h2 class="task__data">Criado no dia:</h2>
+                            <p class="task__data-number">10/02/2023</p>
+                        </div>
+                        <label for="task__check">
+                            <input type="checkbox" name="check" id="task__check">
+                            <span class="checkmark"></span>
+                        </label>
+                    </li>
+                    <li class="task__list-item">
+                        <h2 class="task__list-number">Task 2</h2>
+                        <p class="task__list-description">Andar de Skate com cachorro na coleira!</p>
+                        <div class="task__list-data">
+                            <h2 class="task__data">Criado no dia:</h2>
+                            <p class="task__data-number">15/03/2023</p>
+                        </div>
+                        <label for="task__check">
+                            <input type="checkbox" name="check" id="task__check">
+                            <span class="checkmark"></span>
+                        </label>
+                    </li>
+                    <li class="task__list-item">
+                        <h2 class="task__list-number">Task 3</h2>
+                        <p class="task__list-description">Meditar</p>
+                        <div class="task__list-data">
+                            <h2 class="task__data">Criado no dia:</h2>
+                            <p class="task__data-number">20/05/2023</p>
+                        </div>
+                        <label for="task__check">
+                            <input type="checkbox" name="check" id="task__check">
+                            <span class="checkmark"></span>
+                        </label>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+
+    </main>
+</body>
+</html>
