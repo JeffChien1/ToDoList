@@ -88,25 +88,12 @@ body {
     padding-bottom: 10px;
 }
 
-.task__check {
-    display: block;
-    position: relative;
-    width: 0;
-    height: 0;
-    opacity: 0;
-}
-
-.checkmark {
-    position: absolute;
-    top: 0;
-    left: 0;
+.checkbox__input {
     height: 25px;
     width: 25px;
-    background-color: var(--background);
+    border: solid 2px white;
     border-radius: 5px;
 }
-
-
 
 
 
