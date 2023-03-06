@@ -1,6 +1,6 @@
 const form = document.getElementById('add__element');
 const element = document.getElementById('list__element');
-const today = date.getDate()
+const today = new Date();
 
 
 form.addEventListener('submit',(evento) => {
@@ -24,7 +24,7 @@ function creatingElement (main__task) {
 
     taskNumber.innerHTML = "Task 1";
     newTask.innerHTML = main__task;
-    newDate.innerHTML = newDate();
+    newDate.innerHTML = today;
 
     newItem.appendChild(newTask);
     newItem.appendChild(taskNumber);
