@@ -8,7 +8,6 @@ var month = String(data.getMonth()+1).padStart(2,'0');
 var year = data.getFullYear();
 
 
-
 form.addEventListener('submit',(evento) => {
     evento.preventDefault();
 
@@ -16,12 +15,16 @@ form.addEventListener('submit',(evento) => {
 })
 
 function creatingElement (main__task) {
+    const input = document.querySelector('task__check');
+
     const newItem = document.createElement('li');
     const taskNumber = document.createElement('h2');
     const newTask = document.createElement('p');
     const newDate = document.createElement('div');
     const dateText = document.createElement('h2');
     const dateNumber = document.createElement('p');
+    const newInput = document.createElement('input');
+    newInput.type = 'checkbox';
     
     newItem.classList.add('task__list-item');
     taskNumber.classList.add('task__list-number');
@@ -29,6 +32,7 @@ function creatingElement (main__task) {
     newDate.classList.add('task__list-data');
     dateText.classList.add('task__data');
     dateNumber.classList.add('task__data-number');
+    newInput.classList.add('checkbox__input');
 
     taskNumber.innerHTML = "Task 1";
     newTask.innerHTML = main__task;
@@ -38,6 +42,7 @@ function creatingElement (main__task) {
     newItem.appendChild(taskNumber);
     newItem.appendChild(newTask);
     newItem.appendChild(newDate);
+    newItem.appendChild(newInput);
     newDate.appendChild(dateText);
     newDate.appendChild(dateNumber);
 
