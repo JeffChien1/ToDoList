@@ -95,5 +95,18 @@ body {
     border-radius: 5px;
 }
 
+.container__filter {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    align-items: center;
+}
+
+.btn__filter {
+    border: solid 2px white;
+    border-radius: 5px;
+    font-size: 20px;
+    padding: 10px;
+}
 
 
