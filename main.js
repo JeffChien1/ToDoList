@@ -1,15 +1,26 @@
 const form = document.getElementById('add__element');
 const list = document.querySelector('.task__container-list');
-
+const n = 0;
 
 var data = new Date();
 var day = String(data.getDate()).padStart(2,'0');
 var month = String(data.getMonth()+1).padStart(2,'0');
 var year = data.getFullYear();
 
+const arrayList = [];
+
 
 form.addEventListener('submit',(evento) => {
     evento.preventDefault();
+
+    const newObject = {
+        id: n + 1,
+        task: main__task,
+        taskDate: new Date(),
+    }
+
+    arrayList.add(newObject)
+    console.log(arrayList),
 
     creatingElement(evento.target['main__task'].value);
 })
@@ -47,6 +58,4 @@ function creatingElement (main__task) {
     newDate.appendChild(dateNumber);
 
     list.appendChild(newItem);
-
-    console.log(newItem);
 }
