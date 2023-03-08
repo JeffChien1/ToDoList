@@ -23,11 +23,21 @@ form.addEventListener('submit',(evento) => {
 
     arrayList.push(newObject);
 
-    console.log(arrayList);
-
-    creatingElement(evento.target['main__task'].value);
+    renderArray(newObject);
 })
 
-function creatingElement (main__task) {
-    
+function renderArray (object) {
+    const container = document.querySelector('.task__container-list');
+    const arrayInTags = arrayList.forEach((element) => {
+        html = `<li class="task__list-item">
+        <h2 class="task__list-number">Task ${newObject.id}</h2>
+        <p class="task__list-description">${newObject.task}</p>
+        <div class="task__list-data">
+            <h2 class="task__data">Criado no dia:</h2>
+            <p class="task__data-number">${newObject.taskDate}</p>
+        </div>
+        <input type="checkbox" name="check" id="task__check" class="checkbox__input">
+    </li>`
+    })
+    container.appendChild(html);
 }
