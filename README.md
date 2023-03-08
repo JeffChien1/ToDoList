@@ -7,7 +7,7 @@
  
 Projeto próprio criado para você montar e manipular a sua lista de tarefas.
 
-(Inserir imagem)
+![Tela inicial](https://user-images.githubusercontent.com/84294361/223602255-602e2d77-c3a5-49a6-ab63-41f91bb40879.png)
 
 
 <h2 align="center"> Status do projeto </h2>
