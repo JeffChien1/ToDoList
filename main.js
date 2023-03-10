@@ -2,29 +2,33 @@ const form = document.getElementById('add__element');
 const list = document.querySelector('.task__container-list');
 const itemInput = document.getElementById('main__task');
 
+
 var data = new Date();
 var day = String(data.getDate()).padStart(2,'0');
 var month = String(data.getMonth()+1).padStart(2,'0');
 var year = data.getFullYear();
+dataAtual = day + '/' + month + '/' + year;
 
 const arrayList = [];
 
 
 form.addEventListener('submit',(evento) => {
     evento.preventDefault();
-    savingItem ();
+    savingItem();
+    renderArray();
 })
 
-function savingItem (){
-    const newItem = itemInput.value;
-    const n = 0;
+function savingItem(){
+    const newItem = itemInput.value;  
+    let n = 0;
+    n = n + 1;
     const newObject = { 
-        id: n + 1,
+        id: n,
         task: newItem,
-        taskDate: new Date(),
+        taskDate: dataAtual,
     }
-    const doubleChecking = arrayList.some((element) => element.task.toUpperCase() === newItem.toUpperCase());
 
+    const doubleChecking = arrayList.some((element) => element.task.toUpperCase() === newItem.toUpperCase());
     if (doubleChecking) {
         alert('Essa tarefa já existe!!');
     } else {
@@ -32,13 +36,11 @@ function savingItem (){
     }
 }
 
-console.log(arrayList);
-
-
 function renderArray (object) {
+    itemInput.innerHTML = '';
     const container = document.querySelector('.task__container-list');
     const arrayInTags = arrayList.forEach((element) => {
-        html = `<li class="task__list-item">
+        list.innerHTML += `<li class="task__list-item">
         <h2 class="task__list-number">Task ${element.id}</h2>
         <p class="task__list-description">${element.task}</p>
         <div class="task__list-data">
@@ -48,6 +50,4 @@ function renderArray (object) {
         <input type="checkbox" name="check" id="task__check" class="checkbox__input">
     </li>`
     })
-
-    container.appendChild(html);
 }
