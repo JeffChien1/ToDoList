@@ -50,6 +50,15 @@ function renderArray (object) {
         <input type="checkbox" name="check" id="task__check" class="checkbox__input">
     </li>`
         html += card
-    });
+    }); 
     list.innerHTML = html;
+
+    const inputsCheck = document.querySelectorAll('input[type="checkbox"]');
+
+    inputsCheck.forEach(i => {
+        i.addEventListener('click', (event) => {
+            console.log(event.target.parentElement)
+
+        })
+    })
 }
