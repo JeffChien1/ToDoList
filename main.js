@@ -2,7 +2,6 @@ const form = document.getElementById('add__element');
 const list = document.querySelector('.task__container-list');
 const itemInput = document.getElementById('main__task');
 
-
 var data = new Date();
 var day = String(data.getDate()).padStart(2,'0');
 var month = String(data.getMonth()+1).padStart(2,'0');
@@ -31,6 +30,7 @@ function savingItem(){
             id: n,
             task: newItem,
             taskDate: dataAtual,
+            check: false
         }
         arrayList.push(newObject);
     }
@@ -39,8 +39,8 @@ function savingItem(){
 function renderArray (object) {
     let html = '';
     const container = document.querySelector('.task__container-list');
-    const arrayInTags = arrayList.forEach((element) => {
-        const card = `<li class="task__list-item">
+    const arrayInTags = arrayList.forEach((element, index) => {
+        const card = `<li class="task__list-item data-value="${index}">
         <h2 class="task__list-number">Task ${element.id}</h2>
         <p class="task__list-description">${element.task}</p>
         <div class="task__list-data">
@@ -57,8 +57,10 @@ function renderArray (object) {
 
     inputsCheck.forEach(i => {
         i.addEventListener('click', (event) => {
-            console.log(event.target.parentElement)
+            const elementValue = event.target.parentElement.getAttribute('data-value');
+            arrayList[elementValue].check = event.target.checked
 
+            console.log(arrayList[elementValue].check);
         })
     })
 }
