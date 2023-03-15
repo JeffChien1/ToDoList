@@ -1,6 +1,7 @@
 const form = document.getElementById('add__element');
 const list = document.querySelector('.task__container-list');
 const itemInput = document.getElementById('main__task');
+const buttonFilterTaskDone = document.querySelector('.task__done');
 
 var data = new Date();
 var day = String(data.getDate()).padStart(2,'0');
@@ -16,6 +17,12 @@ form.addEventListener('submit',(evento) => {
     savingItem();
     renderArray();
 })
+
+buttonFilterTaskDone.addEventListener('click', (taskDoneFilter))
+
+function taskDoneFilter() {
+    
+}
 
 let n = 0;
 function savingItem(){
