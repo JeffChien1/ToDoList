@@ -56,11 +56,15 @@ function renderArray (object) {
     const inputsCheck = document.querySelectorAll('input[type="checkbox"]');
 
     inputsCheck.forEach(i => {
-        i.addEventListener('click', (event) => {
-            const elementValue = event.target.parentElement.getAttribute('data-value');
-            arrayList[elementValue].check = event.target.checked
-
-            console.log(arrayList[elementValue].check);
+        i.addEventListener('change', (event) => {
+            const taskId = Number(event.target.value);
+            arrayList.map((task) => {
+                if(task.id === taskId) {
+                    task.check = event.target.checked
+                }
+                return task;
+            })
+            console.log(arrayList);
         })
     })
 }
