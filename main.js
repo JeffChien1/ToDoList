@@ -11,11 +11,14 @@ dataAtual = day + '/' + month + '/' + year;
 
 const arrayList = [];
 
+buttonFilterTaskDone.addEventListener('click', (filterDone))
+
 
 form.addEventListener('submit',(evento) => {
     evento.preventDefault();
     savingItem();
     renderArray();
+    
     itemInput.focus();
 })
 
@@ -59,8 +62,14 @@ function renderArray (object) {
         i.addEventListener('click', (event) => {
             const elementValue = event.target.parentElement.getAttribute('data-value');
             arrayList[elementValue].check = event.target.checked;
-
             console.log(arrayList[elementValue].check)
         })
     })
+}
+
+function filterDone () {
+    itemInput.forEach(item) => {
+        if (!itemInput.querySelector("input").checked);
+            item.style.display = "none";
+    }
 }
