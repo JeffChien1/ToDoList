@@ -16,38 +16,33 @@ form.addEventListener('submit',(evento) => {
     evento.preventDefault();
     savingItem();
     renderArray();
+    itemInput.focus();
 })
 
-buttonFilterTaskDone.addEventListener('click', (taskDoneFilter))
-
-function taskDoneFilter() {
-    
-}
 
 let n = 0;
 function savingItem(){
     const newItem = itemInput.value;  
-
     const doubleChecking = arrayList.some((element) => element.task.toUpperCase() === newItem.toUpperCase());
     if (doubleChecking) {
         alert('Essa tarefa já existe!!');
     } else {
         n = n + 1;
-        const newObject = { 
+        arrayList.push({
             id: n,
             task: newItem,
             taskDate: dataAtual,
             check: false
-        }
-        arrayList.push(newObject);
+        })
     }
+    itemInput.value='';
 }
 
 function renderArray (object) {
-    let html = '';
-    const container = document.querySelector('.task__container-list');
-    const arrayInTags = arrayList.forEach((element, index) => {
-        const card = `<li class="task__list-item data-value="${index}">
+    list.innerHTML = '';
+    arrayList.forEach((element, index) => {
+        list.innerHTML += `
+    <li class="task__list-item" data-value="${index}">
         <h2 class="task__list-number">Task ${element.id}</h2>
         <p class="task__list-description">${element.task}</p>
         <div class="task__list-data">
@@ -56,22 +51,16 @@ function renderArray (object) {
         </div>
         <input type="checkbox" name="check" id="task__check" class="checkbox__input">
     </li>`
-        html += card
     }); 
-    list.innerHTML = html;
 
     const inputsCheck = document.querySelectorAll('input[type="checkbox"]');
 
     inputsCheck.forEach(i => {
-        i.addEventListener('change', (event) => {
-            const taskId = Number(event.target.value);
-            arrayList.map((task) => {
-                if(task.id === taskId) {
-                    task.check = event.target.checked
-                }
-                return task;
-            })
-            console.log(arrayList);
+        i.addEventListener('click', (event) => {
+            const elementValue = event.target.parentElement.getAttribute('data-value');
+            arrayList[elementValue].check = event.target.checked;
+
+            console.log(arrayList[elementValue].check)
         })
     })
 }
