@@ -1,7 +1,7 @@
 const form = document.getElementById('add__element');
 const list = document.querySelector('.task__container-list');
 const itemInput = document.getElementById('main__task');
-const buttonFilterTaskDone = document.querySelector('.task__done');
+
 
 var data = new Date();
 var day = String(data.getDate()).padStart(2,'0');
@@ -11,14 +11,11 @@ dataAtual = day + '/' + month + '/' + year;
 
 const arrayList = [];
 
-buttonFilterTaskDone.addEventListener('click', (filterDone))
-
-
 form.addEventListener('submit',(evento) => {
     evento.preventDefault();
     savingItem();
     renderArray();
-    
+    filterElementDone();
     itemInput.focus();
 })
 
@@ -55,21 +52,21 @@ function renderArray (object) {
         <input type="checkbox" name="check" id="task__check" class="checkbox__input">
     </li>`
     }); 
+}
 
+
+function filterElementDone(){
     const inputsCheck = document.querySelectorAll('input[type="checkbox"]');
-
     inputsCheck.forEach(i => {
         i.addEventListener('click', (event) => {
             const elementValue = event.target.parentElement.getAttribute('data-value');
             arrayList[elementValue].check = event.target.checked;
-            console.log(arrayList[elementValue].check)
         })
     })
-}
 
-function filterDone () {
-    itemInput.forEach(item) => {
-        if (!itemInput.querySelector("input").checked);
-            item.style.display = "none";
+    const buttonFilterTaskDone = document.querySelector('.task__done');
+    buttonFilterTaskDone.addEventListener('click', () => {
+            let filteredTask = arrayList.filter(list => list.check === true);
+            console.log(filteredTask)
+        })
     }
-}
